@@ -12,13 +12,17 @@ function LangMenu({ onClicked }) {
   };
 
   return (
-    <div>
-      <select value={option} onChange={handleOptionChange}>
+    <span  >
+      <select value={option} onChange={handleOptionChange} className='select'>
         <option value="en">{t('English')}</option>
         <option value="es">{t('Spanish')}</option>
+        <option value="cat">{t('Catalan')}</option>
+        <option value="al">{t('German')}</option>
+        <option value="fr">{t('French')}</option>
+        <option value="it">{t('Italian')}</option>
       </select>
       {option && <p>{t('Selected option')}: {option}</p>}
-    </div>
+    </span>
   );
 }
 

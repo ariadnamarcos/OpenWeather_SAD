@@ -14,6 +14,11 @@ i18n
     react: {
       wait: true, // Hace que React esperes a que i18n esté listo antes de renderizar
     },
+    
+    backend: {
+      // Assuming your translation files are located in the public folder
+      loadPath: '/locales/{{lng}}/{{ns}}.json'
+    },
   });
 
 export default i18n;

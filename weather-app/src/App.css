@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Estilos generales */
+body {
+  font-family: Consolas, monospace;
   color: white;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #1f435d, #7791b0, #1f435d);
 }
 
-.App-link {
-  color: #61dafb;
+hr {
+  color: whitesmoke;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Estilos específicos para la aplicación */
+.App {
+  position: relative;
+  padding: 20px;
+}
+
+.weather-now {
+  background: whitesmoke;
+  text-align: center;
+  color: black;
+  border: 0px;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0 auto; /* Centra horizontalmente */
+  max-width: 600px; /* Ajusta el máximo ancho */
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  background: whitesmoke;
+}
+
+.list-element {
+  margin-bottom: 5px;
+}
+
+.select {
+  width: 80px;
+  text-align: right;
+  padding: 3px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background: #bec4c9;
+  color: black;
+}
+
+.select:hover {
+  background: #a3a8ac;
+}
+
+.title {
+  margin-left: 0;
+  text-align: left;
+}
+
+.search-bar {
+  width: 50%; /* Ajusta el tamaño para el botón */
+  text-align: center;
+  padding: 10px; /* Ajustado para mayor tamaño */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left:100px;
+  margin-right:0px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  background: #eff0f2;
+  color: black;
+}
+
+.search-button {
+  width: 100px;
+  padding: 10px; /* Ajustado para mayor tamaño */
+  background: #bec4c9;
+  border: none;
+  border-radius: 5px;
+  margin-right: 200px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.search-button:hover {
+  background: #a3a8ac;
+}
+
+.list {
+  text-align: center;
+  background: whitesmoke;
+}
+
+.list-element {
+  background: whitesmoke;
+}
+
+.weather-prediction{
+  background: whitesmoke;
+  text-align: center;
+  color: black;
+  border: 0px;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0 auto; 
+}
+.text-format{
+  padding: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.text-weather-now{
+  padding:10px;
+  margin:50px;
+}
+.image{
+  width: 25px; /* Ancho de la imagen */
+  height: auto; /* Altura automática para mantener la proporción */
+  border: 2px solid black; /* Borde de 2 píxeles sólido negro */
+  border-radius: 10px; /* Bordes redondeados de 10 píxeles */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra con desplazamiento de 2px en x y y, difuminación de 5px y color negro con opacidad de 50% */
+  margin-top: 20px; /* Margen superior de 20 píxeles */
+  padding: 10px; /* Relleno interno de 10 píxeles */
 }

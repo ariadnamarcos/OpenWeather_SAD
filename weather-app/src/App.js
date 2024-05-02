@@ -5,27 +5,30 @@ import SearchBar from './components/SearchBar';
 import WeatherDisplay from './components/WeatherDisplay';
 import LocationDisplay from './components/LocationDisplay';
 import LangMenu from './components/LangMenu';
+import WeatherNowDisplay from './components/WeatherNowDisplay';
 import {useTranslation} from "react-i18next";
-import { Suspense } from 'react';
 
 const api = {
   key: "d16c1229f85c7e4816d29dcea9e0a4c3",
   geo_base: "https://api.openweathermap.org/geo/1.0/",
-  base: "https://pro.openweathermap.org/data/2.5/forecast/"
+  base: "https://pro.openweathermap.org/data/2.5/forecast/",
+  current_weather_base: "https://pro.openweathermap.org/data/2.5/"
 };
 
 
 
 function App() {
-  const [t, i18n] = useTranslation(["names"]);
+  const [t, i18n] = useTranslation(["translation"]);
+  const [selectedLang, setSelectedLang] = useState('en');
 
   const [geo, setGeo] = useState({});
   const [weather, setWeather] = useState({});
+  const[currentWeather, setCurrentWeather] = useState({});
 
   const handleLangChange = (selectedLang) => {
-    console.log(`Selected language: ${selectedLang}`);
     i18n.changeLanguage(`${selectedLang}`);
-    // Aquí puedes realizar cualquier acción adicional según el idioma seleccionado
+    setSelectedLang(`${selectedLang}`);
+
   };
 
   const searchPressed = (search) => {
@@ -33,13 +36,16 @@ function App() {
       .then(res => res.json())
       .then(result => {
         setGeo(result[0]);
-        return fetch(`${api.base}daily?units=metric&lat=${result[0].lat}&lon=${result[0].lon}&cnt=7&appid=${api.key}`);
+        return Promise.all([
+          fetch(`${api.base}daily?units=metric&lat=${result[0].lat}&lon=${result[0].lon}&cnt=14&appid=${api.key}&lang=${selectedLang}`),
+          fetch(`${api.current_weather_base}weather?q=${result[0].name},${result[0].state}&units=metric&APPID=${api.key}&lang=${selectedLang}`)
+        ]);
       })
-      .then(res => res.json())
-      .then(weatherResult => {
-        // Manejar los resultados de la segunda solicitud
+      .then(responses => Promise.all(responses.map(res => res.json())))
+      .then(([weatherResult, currentWeatherResult]) => {
         setWeather(weatherResult);
-        console.log(weatherResult.list[0].weather[0].main)
+        setCurrentWeather(currentWeatherResult);
+        console.log(currentWeatherResult);
       });
   };
 
@@ -47,24 +53,47 @@ function App() {
   return (
     
     <div className="App">
-      <header className="App-header">
-        <h1>Weather App</h1>
-        <LangMenu onClicked={handleLangChange} />
+      <header >
+        
+        <title>Weather App</title>
+        <div className='init'>
         <SearchBar onSearch={searchPressed} /> 
+
+        <span>
+        <LangMenu onClicked={handleLangChange} class='select-button'/>
+        </span>
+        </div>
+
         <div className='weather-section'>
-          <h2>{t("title")}</h2>
-          {weather && weather.list && weather.list.map(element => (
+          <div>
+            <h3>{t("weather-now")}</h3>
+            {currentWeather && currentWeather.weather && (
+              <WeatherNowDisplay weather={currentWeather} /> 
+            )} 
+           
+             <hr />
+             <hr />
+          </div>
+          <div className='weather-prediction'>
+          {weather && weather.list && weather.list.slice(1).map(element => (
               <div key={element.dt}>
               <WeatherDisplay weather={element} />
               <hr />
               </div>  
             )) 
           }
+          </div>
         </div>
 
         <div className='location-section'>
-          <h3>Location Information</h3>
-          {weather && weather.city && <LocationDisplay location={geo} weather={weather} /> }
+          
+          {weather && weather.city && (
+            <div>
+              <h3>{t("location-section")}</h3>
+              <LocationDisplay location={geo} weather={weather} /> 
+            </div>
+          )}
+
         </div>
       </header>
     </div>
