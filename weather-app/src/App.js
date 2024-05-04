@@ -7,6 +7,7 @@ import LocationDisplay from './components/LocationDisplay';
 import LangMenu from './components/LangMenu';
 import WeatherNowDisplay from './components/WeatherNowDisplay';
 import {useTranslation} from "react-i18next";
+import weatherLogo from './components/images/weather-logo.png'
 
 const api = {
   key: "d16c1229f85c7e4816d29dcea9e0a4c3",
@@ -57,6 +58,7 @@ function App() {
         
         <title>Weather App</title>
         <div className='init'>
+          <img src={weatherLogo} alt="Weather Logo" className='logo'/>
         <SearchBar onSearch={searchPressed} /> 
 
         <span>
@@ -66,13 +68,11 @@ function App() {
 
         <div className='weather-section'>
           <div>
-            <h3>{t("weather-now")}</h3>
+            <h3 className='title'>{t("weather-now")}</h3>
             {currentWeather && currentWeather.weather && (
               <WeatherNowDisplay weather={currentWeather} /> 
             )} 
            
-             <hr />
-             <hr />
           </div>
           <div className='weather-prediction'>
           {weather && weather.list && weather.list.slice(1).map(element => (

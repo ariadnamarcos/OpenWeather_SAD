@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 function LangMenu({ onClicked }) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [option, setOption] = useState('');
 
   const handleOptionChange = (event) => {
@@ -10,6 +10,8 @@ function LangMenu({ onClicked }) {
     setOption(selectedOption);
     onClicked(selectedOption);
   };
+
+  
 
   return (
     <span  >

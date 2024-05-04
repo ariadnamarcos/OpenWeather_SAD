@@ -1,9 +1,13 @@
 // WeatherDisplay.js
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import scatteredClouds from './images/scattered_clouds.png';
+import fewClouds from './images/scattered_clouds.png';
 import rainy from './images/rainy.png';
 import sunny from './images/sunny.png';
+import overcastClouds from './images/overcast_clouds.jpg';
+import scatteredClouds from './images/scattered_clouds.png';
+import brokenClouds from './images/broken_clouds.png';
+
 
 function WeatherDisplay({ weather }) {
   const { t } = useTranslation();
@@ -16,7 +20,15 @@ function WeatherDisplay({ weather }) {
 
   let weatherImage;
   if (weather.weather[0].main === 'Clouds') {
-    weatherImage = scatteredClouds;
+    if(weather.weather[0].description === 'overcast clouds') {
+      weatherImage = overcastClouds;
+    } else if(weather.weather[0].description === 'few clouds') {
+      weatherImage = fewClouds;
+    }else  if(weather.weather[0].description === 'scattered clouds'){
+      weatherImage = scatteredClouds;
+    } else if(weather.weather[0].description === 'broken clouds'){
+      weatherImage = brokenClouds;
+    }
   } else if (weather.weather[0].main === 'Clear') {
     weatherImage = sunny;
   } else if (weather.weather[0].main === 'Rain') {
@@ -24,12 +36,12 @@ function WeatherDisplay({ weather }) {
   } 
 
   return (
-    <div>
-     <img src = {weatherImage} alt="Weather Image" className='image'/>
-      <span className='text-format'>{t("date")}: {date.day}/{date.month}/{date.year}</span>
-      <span className='text-format'>{t("temperature")} {weather.temp.day}ºC</span>
-      <span className='text-format'>{t("main")} {weather.weather[0].main}</span>
-      <span className='text-format'>{t("description")}: {weather.weather[0].description}</span>
+    <div className='daily-weather'>
+      <span className='text-format'>{date.day}/{date.month}/{date.year}</span>
+      <img src = {weatherImage} alt="Weather Image" className='image'/>
+      <span className='text-format'><em className='text-temperature'> {weather.temp.max}ºC</em> / <i>{weather.temp.min}ºC</i></span> 
+      <span className='text-format'>{weather.weather[0].main}</span>
+      <span className='text-format'>{weather.weather[0].description}</span>
     </div>
   );
 }

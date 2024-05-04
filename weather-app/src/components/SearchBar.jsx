@@ -14,7 +14,6 @@ function SearchBar({ onSearch }) {
 
   return (
     <span>
-      <span className='title'>{t("title")}</span>
       <input 
         type="text" 
         placeholder={t("placeholder")}
