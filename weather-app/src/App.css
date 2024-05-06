@@ -1,6 +1,5 @@
-/* Estilos generales */
 body {
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: larger;
   color: white;
   margin: 0;
@@ -18,38 +17,41 @@ hr {
   padding: 20px;
 }
 
-.init{
+.init {
   display: flex;
-  justify-content: space-between; /* Alinear los elementos a lo largo del eje principal con espacio entre ellos */
-  align-items: center; /* Alinear los elementos verticalmente en el centro */
-  padding: 20px; /* Añadir un relleno alrededor de los elementos */
-  margin:20px;
-  margin-left:40px;
-  margin-right:40px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
-.logo{
-  width: 75px; 
-  height: auto; 
-  border: 2px solid rgb(255, 255, 255); 
-  border-radius: 20px; 
+
+.logo {
+  width: 75px;
+  height: auto;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 20px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   padding: 10px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.807);
 }
+
 .search-bar {
-  flex:1;
-  width:40%;
+  flex: 1;
+  width: 40%;
   text-align: center;
-  padding: 8px; 
+  padding: 8px;
   border-radius: 5px;
   font-size: 16px;
-  margin-left:20px;
-  margin-top:10px;
+  margin-left: 20px;
+  margin-top: 10px;
   box-sizing: border-box;
   background: #eff0f2;
   color: black;
   box-shadow: 0px 0px 10px rgba(208, 203, 203, 0.807);
 }
+
 .select {
   width: 90px;
   text-align: right;
@@ -61,11 +63,12 @@ hr {
   color: black;
   box-shadow: 0px 0px 10px rgba(208, 203, 203, 0.807);
 }
+
 .search-button {
   width: 100px;
-  padding: 8px; 
+  padding: 8px;
   background: #bec4c9;
-  
+
   border-radius: 5px;
   margin-right: 200px;
   font-size: 16px;
@@ -75,28 +78,28 @@ hr {
 }
 
 
-.daily-weather{
+.daily-weather {
   display: flex;
-  flex-direction: row; /* Para alinear verticalmente */
-  justify-content: center; /* Para alinear horizontalmente al centro */
-  align-items: center; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .weather-now {
   background: whitesmoke;
-  flex:1;
-  text-align:right;
+  flex: 1;
+  text-align: right;
   color: black;
   border: 0px;
   padding: 10px;
   border-radius: 15px;
   font-size: 16px;
   box-sizing: border-box;
-  margin: 20px; /* Centra horizontalmente */
+  margin: 20px;
 }
 
-.weather-now > * {
-  margin: 20px; /* Espacio entre los elementos internos */
+.weather-now>* {
+  margin: 20px;
 }
 
 .list-element {
@@ -106,17 +109,17 @@ hr {
 
 .weather-now-image {
   align-self: left;
-  width:100px;/* Ancho automático para mantener la proporción */
+  width: 100px;
   margin-left: 30px;
 }
 
 .list-text {
-  flex: 1; /* Hace que el texto ocupe todo el espacio disponible */
+  flex: 1;
   flex-direction: column;
   justify-content: center;
-  text-align: right; /* Alinea el texto a la derecha */
-  margin-right:30px;
-  margin-left :30px;
+  text-align: right;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 .list {
@@ -124,7 +127,7 @@ hr {
   padding: 0;
   background: whitesmoke;
   align-self: center;
-  margin:20px;
+  margin: 20px;
 }
 
 
@@ -135,16 +138,16 @@ hr {
 }
 
 .title {
-  color: white; /* Establece el color del texto en blanco */
-  font-size: 30px; /* Ajusta el tamaño del texto según sea necesario */
-  font-weight: bold; /* Hace que el texto sea negrita */
-  font-style:italic;
-  text-align: left; /* Centra el texto horizontalmente */
-  margin-bottom: 20px; /* Agrega un margen inferior para separar el título de otros elementos */
-  padding: 10px 20px; /* Agrega un relleno alrededor del título */
-  border: 2px solid white; /* Agrega un borde sólido de 2 píxeles alrededor del título */
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border: 2px solid white;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); 
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
 }
 
 .search-button:hover {
@@ -157,39 +160,42 @@ hr {
 }
 
 
-.weather-prediction{
+.weather-prediction {
   background: whitesmoke;
   text-align: center;
   color: black;
-  border:none;
+  border: none;
   padding: 10px;
   border-radius: 15px;
   font-size: 16px;
   box-sizing: border-box;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
-.text-format{
+
+.text-format {
   padding: 10px;
   margin-left: 50px;
   margin-right: 50px;
 }
-.text-weather-now{
-  padding:10px;
-  margin:50px;
+
+.text-weather-now {
+  padding: 10px;
+  margin: 50px;
 }
-.image{
-  width: 35px; /* Ancho de la imagen */
-  height: auto; /* Altura automática para mantener la proporción */
-  border: 2px solid whitesmoke; /* Borde de 2 píxeles sólido negro */
-  border-radius: 10px; /* Bordes redondeados de 10 píxeles */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra con desplazamiento de 2px en x y y, difuminación de 5px y color negro con opacidad de 50% */
-  padding: 10px; /* Relleno interno de 10 píxeles */
-  margin-right:40px;
-  margin-top:0px;
+
+.image {
+  width: 35px;
+  height: auto;
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin-right: 40px;
+  margin-top: 0px;
 }
-.text-temperature{
+
+.text-temperature {
   font-size: large;
   font-weight: bold;
   font-style: normal;
 }
-
